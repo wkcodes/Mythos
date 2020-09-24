@@ -1,3 +1,3 @@
-# storebot
+# Mythos
 
-Live your story...make it epic. 
+Live your adventure...tell your story. 
