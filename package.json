@@ -1,0 +1,19 @@
+{
+  "name": "mythos",
+  "version": "1.0.0",
+  "description": "This is an online social media platform for Live Action Role Players. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wkcodes/Mythos.git"
+  },
+  "author": "Will Kendall, Du'Ryan Ebbesen, Josh Payne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wkcodes/Mythos/issues"
+  },
+  "homepage": "https://github.com/wkcodes/Mythos#readme"
+}
