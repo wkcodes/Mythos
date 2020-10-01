@@ -1,0 +1,46 @@
+
+.hidden {
+  display: none;
+}
+
+li {
+  list-style: none;
+}
+
+.myMyths {
+  margin-top: 10%;
+}
+
+button.submit {
+  float: right;
+}
+
+form#myth {
+  margin-top: 50px;
+}
+
+#myth textarea {
+  resize: none;
+}
+
+.card-header button.delete,
+button.edit {
+  float: right;
+  margin: 5px;
+}
+
+.blog-container {
+  margin-top: 30px;
+}
+
+.myth {
+  margin-top: 30px;
+}
+
+
+.top-30 {
+  margin-top: 30px;
+}
+
+
+
