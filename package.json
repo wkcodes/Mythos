@@ -4,7 +4,11 @@
   "description": "This is an online social media platform for Live Action Role Players. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/wkcodes/Mythos/issues"
   },
-  "homepage": "https://github.com/wkcodes/Mythos#readme"
+  "homepage": "https://github.com/wkcodes/Mythos#readme",
+  "dependencies": {
+    "express": "^4.17.0",
+    "express-handlebars": "^5.1.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.6"
+  }
 }

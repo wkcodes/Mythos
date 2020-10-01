@@ -2,6 +2,8 @@
 
 Live your adventure...tell your story. 
 
+Mythos is a web based social blogging app that allows users to share their own writing in a fantasy/historical setting. 
+
 ## Concordance
 Myth: Blog Post  
 
