@@ -18,9 +18,13 @@ module.exports = function(app) {
   });
 
    // index route loads mainProfilePage.html
-  app.get("/", function(req, res) {
+  app.get("/main", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/mainProfilePage.html"));
   });
+
+  app.get("/profile", function(req, res){
+    res.sendFile(path.join(__dirname, "../public/profile.html"))
+  })
 
   // blog route loads world.html
   app.get("/world", function(req, res) {

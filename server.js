@@ -25,8 +25,8 @@ app.use(express.static("public"));
 // =============================================================
 
 //We'll need to change whats in the routes dir to reflect Mythos 
-//require("./routes/api-routes.js")(app);
-//require("./routes/html-routes.js")(app);
+// require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
