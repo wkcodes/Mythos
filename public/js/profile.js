@@ -7,14 +7,25 @@ $(document).ready(function(){
     $(myth).on("submit", handleFormSubmit);
 
     $.ajax({
-      url: `/api/myth/${userID}`, //this will be the api route for the user. /api/myth/:userID (this will be route in the server)
+      url: `/api/myths/:${userID}`, //this will be the api route for the user. /api/myths/:userID (this will be route in the server)
       method: "GET"
     }).then(res => {
   // Once that is complete and a response returns then append to card container the most recent post
       // api should respond with newly entered post. 
       // create for loop to go through responses.
+
+      for(let i = 0; i < res.length; i++){
+
+        let card = $("<div class='card' style='width: 100%;'></div")
+        let cardBody = $("<div class='card-body'></div")
+        let cardTitle = $(`<h5 class='card-title'>${res[i].title}</h5>`)
+        let cardText = $(`<p class='card-text'>${res[i].body}</p>`)
       
-      $("#myMyths ul").append("<li>" + res.title + res.body + "</li>")
+        card.append(cardBody)
+        cardBody.append(cardTitle + cardText)
+
+      $("#myMyths ul").prepend(`<li>${card}</li>`)
+    }
     })
 
     
@@ -27,25 +38,29 @@ $(document).ready(function(){
           }
           var newPost = {
             userID: userID, 
-            title: mythTitle
-              .val()
-              .trim(),
-            body: mythBody
-              .val()
-              .trim(),
+            title: mythTitle.val().trim(),
+            body: mythBody.val().trim(),
           };  
 
           $.ajax({
-            url: "/api/myth", //this will be the api route for myths.
+            url: "/api/myths", //this will be the api route for myths.
             method: "POST",
             data: newPost
           }).then(res => {
         // Once that is complete and a response returns then append to card container the most recent post
             // api should respond with newly entered post. 
-            $("#myMyths ul").append("<li>" + res.title + res.body + "</li>")
+            
+            let card = $("<div class='card' style='width: 100%;'></div")
+            let cardBody = $("<div class='card-body'></div")
+            let cardTitle = $(`<h5 class='card-title'>${res.title}</h5>`)
+            let cardText = $(`<p class='card-text'>${res.body}</p>`)
+          
+            card.append(cardBody)
+            cardBody.append(cardTitle + cardText)
+    
+          $("#myMyths ul").prepend(`<li>${card}</li>`)
           })
 
-         
 
     } 
 })
