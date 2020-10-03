@@ -2,29 +2,32 @@ $(document).ready(function(){
     let mythTitle = $("#title");
     let mythBody = $("#body");
     let myth = $("#myth")
-    let userID = 1; //populate this with actual user id. Maybe get from local storage. 
+    let userId = 1; //populate this with actual user id. Maybe get from local storage. 
   
     $(myth).on("submit", handleFormSubmit);
 
     $.ajax({
-      url: `/api/myths/:${userID}`, //this will be the api route for the user. /api/myths/:userID (this will be route in the server)
+      url: `/api/myths/${userId}`, //this will be the api route for the user. /api/myths/:userID (this will be route in the server)
       method: "GET"
     }).then(res => {
   // Once that is complete and a response returns then append to card container the most recent post
       // api should respond with newly entered post. 
       // create for loop to go through responses.
-
+      console.log(res)
       for(let i = 0; i < res.length; i++){
 
         let card = $("<div class='card' style='width: 100%;'></div")
         let cardBody = $("<div class='card-body'></div")
         let cardTitle = $(`<h5 class='card-title'>${res[i].title}</h5>`)
         let cardText = $(`<p class='card-text'>${res[i].body}</p>`)
-      
-        card.append(cardBody)
-        cardBody.append(cardTitle + cardText)
 
-      $("#myMyths ul").prepend(`<li>${card}</li>`)
+        console.log(card)
+      
+        cardBody.append(cardTitle)
+        cardBody.append(cardText)
+        card.append(cardBody)
+        
+      $("#myMyths ul").prepend(card)
     }
     })
 
@@ -37,28 +40,31 @@ $(document).ready(function(){
             return;
           }
           var newPost = {
-            userID: userID, 
+            userId: userId, 
             title: mythTitle.val().trim(),
             body: mythBody.val().trim(),
-          };  
+          };
+          console.log("HEY OVER HERE", newPost)  
 
           $.ajax({
-            url: "/api/myths", //this will be the api route for myths.
             method: "POST",
+            url: "/api/myths", //this will be the api route for myths.
             data: newPost
           }).then(res => {
         // Once that is complete and a response returns then append to card container the most recent post
             // api should respond with newly entered post. 
-            
+            console.log(res)
+
             let card = $("<div class='card' style='width: 100%;'></div")
             let cardBody = $("<div class='card-body'></div")
             let cardTitle = $(`<h5 class='card-title'>${res.title}</h5>`)
             let cardText = $(`<p class='card-text'>${res.body}</p>`)
           
+            cardBody.append(cardTitle)
+            cardBody.append(cardText)
             card.append(cardBody)
-            cardBody.append(cardTitle + cardText)
-    
-          $("#myMyths ul").prepend(`<li>${card}</li>`)
+            
+          $("#myMyths ul").prepend(card)
           })
 
 
