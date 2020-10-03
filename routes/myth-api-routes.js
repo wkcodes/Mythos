@@ -15,10 +15,10 @@ module.exports = function (app) {
         });
     });
 
-    app.get("api/myths/:id", function (req, res) {
-        db.myth.findOne({
+    app.get("/api/myths/:id", function (req, res) {
+        db.myth.findAll({
             where: {
-                id: req.params.id
+                userId: req.params.id
             },
             include: [db.user]
         }).then(function (dbMyth) {
@@ -27,6 +27,7 @@ module.exports = function (app) {
     });
 
     app.post("/api/myths", function (req, res) {
+        console.log(req.body)
         db.myth.create(req.body).then(function (dbMyth) {
             res.json(dbMyth);
         });
