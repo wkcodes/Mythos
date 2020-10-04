@@ -6,8 +6,11 @@ let Sequelize = require("sequelize");
 let basename = path.basename(module.filename);
 let env = process.env.NODE_ENV || "development";
 let config = require(__dirname + "/../config/config.json")[env];
-let db = {};
+let db = CLEARDB_DATABASE_URL;
 let sequelize;
+
+console.log(process.env)
+
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[`config`.use_env_variable]);
 } else {
