@@ -11,7 +11,7 @@ let sequelize;
 
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[DATABASE], process.env[USERNAME], process.env[PASSWORD], {
-    host: process.env.[HOST],
+    host: process.env.HOST,
     dialect: mysql2
   });
 } else {
