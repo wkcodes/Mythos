@@ -8,7 +8,8 @@ li {
 }
 
 .myMyths {
-  margin-top: 10%;
+  margin-top: 25%;
+  width: 160%;
 }
 
 button.submit {
@@ -23,6 +24,10 @@ form#myth {
   resize: none;
 }
 
+.card-body {
+  padding: 2%;
+}
+
 .card-header button.delete,
 button.edit {
   float: right;
@@ -33,10 +38,14 @@ button.edit {
   margin-top: 30px;
 }
 
+
 .myth {
   margin-top: 30px;
 }
 
+.cardLayout {
+  margin-top: 2%;
+}
 
 .top-30 {
   margin-top: 30px;

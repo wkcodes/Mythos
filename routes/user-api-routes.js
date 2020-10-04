@@ -3,7 +3,9 @@ let db = require("../models")
 module.exports = function(app) {
     app.get("/api/users", function(req, res) {
         db.user.findAll({
-            include: [db.Myth]
+            defaultScope: {
+                include: [db.Myth]
+            }
         }).then(function(dbUser){
             res.json(dbUser);
         });
