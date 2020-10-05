@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Yatra One', cursive;
+}
 
 .hidden {
   display: none;
@@ -8,7 +12,7 @@ li {
 }
 
 .myMyths {
-  margin-top: 25%;
+  margin-top: 5%;
   width: 160%;
 }
 
@@ -24,23 +28,9 @@ form#myth {
   resize: none;
 }
 
-.card-body {
-  padding: 2%;
-}
-
-.card-header button.delete,
-button.edit {
-  float: right;
-  margin: 5px;
-}
-
-.blog-container {
-  margin-top: 30px;
-}
-
 
 .myth {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .cardLayout {
@@ -52,17 +42,18 @@ button.edit {
 }
 
 
-* {
-  box-sizing: border-box;
-  font-family: 'Yatra One', cursive;
-}
-
 .card-body {
   font-family: 'Yatra One', cursive;
   background-image: url(../assets/scroll-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 3.25rem
   
+}
+
+.card-text {
+  white-space: normal;
+  overflow-y: scroll;
 }
 
 .card-header {
@@ -77,7 +68,3 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-
-
-
