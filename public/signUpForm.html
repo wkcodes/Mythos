@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="/public/css/styles.css"> -->
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Sign Up</title>
 </head>
 <body>
+  <div class="headers">
+<h1>WELCOME TO MYTHOS</h1>
+<h3>Live your adventure...Tell your story</h3>
+</div>
     <div>
         <form id="signUp">
+          <div class="col-md-6 offset-md-3 inputFields">
               <div id="userEmail">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="name@example.com">
@@ -19,15 +24,16 @@
                     <input type="text" class="form-control" id="charName" placeholder="Character Name">
             </div>
     
-            <div class="ageVer">
+            <!-- <div class="ageVer">
                 <input class="age-check" type="checkbox" value="" id="defaultCheck">
                 <label class="form-check-label" for="defaultCheck1">
                   Are you 13+ years of Age
                 </label>
-              </div>
+              </div> -->
+            </div>
           </form>
 
-          <button type="submit">Submit</button>
+          <button type="submit" class="btn btn-success">Submit</button>
     </div>
     
 
