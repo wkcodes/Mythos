@@ -68,3 +68,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.inputFields {
+  margin-top: 15%;
+}
+
+.loginSubmit {
+  margin-top: 1%;
+}
