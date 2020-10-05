@@ -1,22 +1,5 @@
 let db = require("../models")
 
-//testing the database
-app.get('/add', (req, res) => {
-    const data = {
-      name: 'bob',
-      email: 'bob@gmail.com',
-      characterName: 'Bobthar'
-    }
-  
-    user.create({
-      name,
-      email,
-      characterName
-    })
-      .then()
-      .catch(err => console.log(err))
-  })
-
 module.exports = function(app) {
     app.get("/api/users", function(req, res) {
         db.user.findAll({
