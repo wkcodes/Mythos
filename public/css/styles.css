@@ -73,6 +73,19 @@ body {
   margin-top: 15%;
 }
 
-.loginSubmit {
+.btn {
   margin-top: 1%;
+}
+
+.headers {
+  margin-top: 5%;
+  background-color: rgba(222, 184, 135, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+label {
+  background-color: rgba(222, 184, 135, 0.5);
 }
