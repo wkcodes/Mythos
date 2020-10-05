@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.get("/api/users", function(req, res) {
         db.user.findAll({
             defaultScope: {
-                include: [db.Myth]
+                include: [db.myth]
             }
         }).then(function(dbUser){
             res.json(dbUser);
@@ -16,7 +16,7 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             },
-            include: [db.Myth]
+            include: [db.myth]
         }).then(function(dbUser) {
             res.json(dbUser);
         });

@@ -11,7 +11,7 @@ $(document).ready(function(){
     $(myth).on("submit", handleFormSubmit);
 
     $.ajax({
-      url: `/api/myths/${userId}`, //this will be the api route for the user. /api/myths/:userID (this will be route in the server)
+      url: `/api/myths/${userId}`,
       method: "GET"
     }).then(res => {
   // Once that is complete and a response returns then append to card container the most recent post
@@ -27,7 +27,6 @@ $(document).ready(function(){
         let cardTitle = $(`<h5 class='card-title'>${res[i].title}</h5>`)
         let cardText = $(`<p class='card-text'>${res[i].body}</p>`)
 
-        console.log(card)
         cardBody.append(cardTitle)
         cardBody.append(cardText)
         card.append(cardBody)
@@ -59,16 +58,18 @@ $(document).ready(function(){
             // api should respond with newly entered post. 
             console.log(res)
 
+            let cardSize = $("<div class='col-md-6'></div>")
             let card = $("<div class='card' style='width: 100%;'></div")
             let cardBody = $("<div class='card-body'></div")
             let cardTitle = $(`<h5 class='card-title'>${res.title}</h5>`)
             let cardText = $(`<p class='card-text'>${res.body}</p>`)
-          
+    
             cardBody.append(cardTitle)
             cardBody.append(cardText)
             card.append(cardBody)
+            cardSize.append(card)
             
-          $("#myMyths ul").prepend(card)
+          $("#myMyths").prepend(cardSize)
           })
 
 
