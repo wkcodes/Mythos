@@ -3,7 +3,7 @@ $(document).ready(function(){
     let mythBody = $("#body");
     let myth = $("#myth")
     let userId = JSON.parse(window.localStorage.getItem("id")); //populate this with actual user id. Maybe get from local storage. 
-    let welcome = $("#welcome")
+    let welcome = $("#welcome");
     let charName = JSON.parse(window.localStorage.getItem("characterName"))
     console.log(charName)
     welcome.append(`Welcome ${charName} tell us your story`)
