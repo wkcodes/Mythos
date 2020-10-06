@@ -39,8 +39,10 @@ $(document).ready(function(){
             userId = res.id
             character = res.characterName
 
+
            setStorage();
             
+
         })
         
         function setStorage() {

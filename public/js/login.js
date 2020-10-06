@@ -20,14 +20,11 @@ $(document).ready(function () {
             emailInput = email.val().trim();
             charNameInput = charName.val().trim();
 
-            console.log(emailInput);
-            console.log(charNameInput)
             for (let i = 0; i < res.length; i++) {
                 if (emailInput === res[i].email && charNameInput === res[i].characterName) {
-                    console.log("true")
                     userId = res[i].id
-                    window.localStorage.setItem("id", userId)
-                    window.localStorage.setItem("characterName", JSON.stringify(charNameInput))
+                    window.localStorage.setItem("id", JSON.stringify(userId));
+                    window.localStorage.setItem("characterName", JSON.stringify(charNameInput));
                 }
             }
 
