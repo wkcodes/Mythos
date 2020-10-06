@@ -3,9 +3,21 @@ $(document).ready(function(){
     let charName = $("#charName")    
     let checkBox = $("#defaultCheck")
     let signUp = $("#signUp")
+    let login = $("#login")
+
+    // trying to route to logIn page
+    $(login).on("submit", goToLogin)
     
+    function goToLogin(){
+        return location.replace("/login")
+    }
+    // -----------------------------------
+
     $(signUp).on("submit", submitUser)
-    
+   
+    let userId;
+    let character;
+
     function submitUser(event) {
         event.preventDefault();
 
@@ -24,14 +36,18 @@ $(document).ready(function(){
             data: newUser
         }).then(res => {
             console.log(res.id)
-            let userId = res.id
-            let character = res.characterName
+            userId = res.id
+            character = res.characterName
 
-            window.localStorage.setItem("id", userId)
-            JSON.stringify(window.localStorage.setItem("characterName", character))
+           setStorage();
+            
         })
-
+        
+        function setStorage() {
+        window.localStorage.setItem("id", userId)
+        window.localStorage.setItem("characterName", JSON.stringify(character))
         location.replace("/profile")
+        }
     }
 
 
