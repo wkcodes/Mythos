@@ -28,7 +28,7 @@ $(document).ready(function(){
             let character = res.characterName
 
             window.localStorage.setItem("id", userId)
-            JSON.stringify(window.localStorage.setItem("characterName", character))
+            window.localStorage.setItem("characterName", JSON.stringify(character));
         })
 
         location.replace("/profile")
