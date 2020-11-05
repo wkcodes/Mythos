@@ -1,39 +1,30 @@
 let db = require("../models");
 
 module.exports = function (app) {
-    app.get("/api/myths", function (req, res) {
-        let query = {};
-        if (req.query.userID) {
-            query.userID = req.query.userID;
+    app.get("/profile", function (req, res) {
+        console.log(req.session.userId)
+        if(req.session.userId === undefined){
+            return res.redirect("/login")
         }
-
-        db.myth.findAll({
-            where: query,
-            include: [db.user]
-        }).then(function (dbMyth) {
-            res.json(dbMyth);
-        });
-    });
-
-    app.get("/api/myths/:id", function (req, res) {
+        
         db.myth.findAll({
             where: {
-                userId: req.params.id
-            },
-            include: [db.user]
+                userId: req.session.userId
+            },raw:true
         }).then(function (dbMyth) {
-            res.json(dbMyth);
+            res.render("profile", {myths: dbMyth, characterName: req.session.charName});
         });
     });
 
-    app.post("/api/myths", function (req, res) {
-        console.log(req.body)
+
+    app.post("/api/profile", function (req, res) {
+        
         db.myth.create(req.body).then(function (dbMyth) {
             res.json(dbMyth);
         });
     });
 
-    app.delete("/api/myths/:id", function (req, res) {
+    app.delete("/api/profile/:mythId", function (req, res) {
         db.myth.destroy({
             where: {
                 id: req.params.id
@@ -43,7 +34,7 @@ module.exports = function (app) {
         });
     });
 
-    app.put("/api/myths", function (req, res) {
+    app.put("/profile", function (req, res) {
         db.myth.update(
             req.body,
             {
