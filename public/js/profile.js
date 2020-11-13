@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+  mergeImages(["../images/templates/Races/human/Base-human.png", "../images/templates/Races/human/human-bow-and-quiver.png"])
+        .then(b64 => $("#avatar").attr('src', b64))
+
+        
+
+  
     let mythTitle = $("#title");
     let mythBody = $("#body");
     let myth = $("#myth")
