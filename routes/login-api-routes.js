@@ -29,7 +29,8 @@ module.exports = function (app) {
             req.session.userId = user.id
             req.session.charName = user.characterName
             console.log("success")
-            return res.sendStatus(200)
+            return res.json(user)
+            
 
 
         })

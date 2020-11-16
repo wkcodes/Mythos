@@ -104,9 +104,14 @@ label {
 .label {
 
   background-color: rgba(222, 184, 135, 0.5);  
+  display: inline-block;
 }
 
 .err {
   color: red;
   background-color: black;
+}
+
+.btnSelected {
+  border-color: orange;
 }

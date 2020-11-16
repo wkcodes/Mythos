@@ -8,6 +8,8 @@ module.exports = function (sequelize, DataTypes) {
         characterName: DataTypes.STRING,
         faction: DataTypes.STRING,
         profilePic: DataTypes.STRING,
+        img1: DataTypes.STRING,
+        img2: DataTypes.STRING,
         age: DataTypes.INTEGER,
     });
 

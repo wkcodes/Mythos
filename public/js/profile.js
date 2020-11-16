@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  
+   
 
         
 
@@ -12,7 +12,20 @@ $(document).ready(function(){
 
     $(myth).on("submit", handleFormSubmit);
 
-    
+    let userID = window.localStorage.getItem("id")
+
+  $.ajax({
+    method: "GET",
+    url: `/api/users/${userID}`,
+  }).then(user => {
+    if(user.img1 && user.img2) {
+      mergeImages([user.img1, user.img2])
+            .then(b64 => $("#avatar").attr('src', b64))
+      $("#createAvatar").text("Edit Avatar")
+      $("#avatar").removeClass("hidden")
+    }
+  })
+
 
     function handleFormSubmit(event) {
         event.preventDefault();

@@ -22,6 +22,27 @@ module.exports = function(app) {
         });
     });
 
+    app.put("/api/users/:id", function(req, res) {
+        console.log("1")
+        let img1 = req.body.img1
+        let img2 = req.body.img2
+
+        db.user.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(user => {
+            console.log("2")
+            console.log(img1, img2)
+            user.update({img1: img1, img2: img2}).then(updatedUser => {
+                console.log(updatedUser)
+                res.json(updatedUser)
+            })
+        })
+        
+    })
+
     app.post("/api/users", function(req, res) {
         db.user.create(req.body).then(function(dbUser) {
             res.json(dbUser);
