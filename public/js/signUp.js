@@ -41,6 +41,8 @@ $(document).ready(function(){
 
 
            setStorage();
+
+           location.replace("/profile")
             
 
         })
@@ -48,7 +50,6 @@ $(document).ready(function(){
         function setStorage() {
         window.localStorage.setItem("id", userId)
         window.localStorage.setItem("characterName", JSON.stringify(character))
-        location.replace("/profile")
         }
     }
 

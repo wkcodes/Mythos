@@ -33,39 +33,45 @@ $(document).ready(function(){
     $(".avatarBtn").click(function () {
         switch ($(this).attr("id")) {
             case "human":
-                console.log("Human")
-                $("#elf").addClass("hidden")
-                $("#dwarf").addClass("hidden")
+                $("#human").addClass("btnSelected")
+                $("#modalPage1").addClass("hidden")
+                $("#modalPage2").removeClass("hidden")
+                $("#elf").removeClass("btnSelected")
+                $("#dwarf").removeClass("btnSelected")
                 imgArray.push(human)
                 break;
             case "elf":
-                console.log("Elf")
-                $("#human").addClass("hidden")
-                $("#dwarf").addClass("hidden")
+                $("#elf").addClass("btnSelected")
+                $("#modalPage1").addClass("hidden")
+                $("#modalPage2").removeClass("hidden")
+                $("#human").removeClass("btnSelected")
+                $("#dwarf").removeClass("btnSelected")
                 imgArray.push(elf)
                 break;
             case "dwarf":
-                console.log("Dwarf")
-                $("#human").addClass("hidden")
-                $("#elf").addClass("hidden")
+                $("#dwarf").addClass("btnSelected")
+                $("#modalPage1").addClass("hidden")
+                $("#modalPage2").removeClass("hidden")
+                $("#elf").removeClass("btnSelected")
+                $("#human").removeClass("btnSelected")
                 imgArray.push(dwarf)
                 break;
             case "sword":
-                console.log("Sword")
-                $("#axe").addClass("hidden")
-                $("#bow").addClass("hidden")
+                $("#sword").addClass("btnSelected")
+                $("#axe").removeClass("btnSelected")
+                $("#bow").removeClass("btnSelected")
                 swordChoice();
                 break;
             case "axe":
-                console.log("axe")
-                $("#sword").addClass("hidden")
-                $("#bow").addClass("hidden")
+                $("#axe").addClass("btnSelected")
+                $("#bow").removeClass("btnSelected")
+                $("#sword").removeClass("btnSelected")
                 axeChoice();
                 break;
             case "bow":
-                console.log("bow")
-                $("#axe").addClass("hidden")
-                $("#sword").addClass("hidden")
+                $("#bow").addClass("btnSelected")
+                $("#sword").removeClass("btnSelected")
+                $("#axe").removeClass("btnSelected")
                 bowChoice();
                 break;
             
@@ -114,25 +120,49 @@ $(document).ready(function(){
 
     $('#submit').click(function(e) {
         e.preventDefault();
-        $("#createAvatar").addClass("hide")
         $('#avatarModal').modal('hide');
-        displayAvatar()
+        $("#modalPage1").removeClass("hidden")
+        $("#modalPage2").addClass("hidden")
+
+        // displayAvatar()
+        
+
+        let avatar = {
+        img1: imgArray[0],
+        img2: imgArray[1]
+    }
+        let userID = window.localStorage.getItem("id")
+    // When user selects 'submit' the choices for race and weapon are sent to sql database for the current user
+    $.ajax({
+        url: `/api/users/${userID}`,
+        method: "PUT",
+        data: avatar
+    // The race and weapon fields are then returned and rendered using mergeImages
+        }).then(res => {
+            console.log(res)
+            mergeImages([res.img1, res.img2])
+            .then(b64 => $(avatarImg).attr('src', b64))
+            $("#avatar").removeClass("hidden")
+            $("#createAvatar").text("Edit Avatar")
+        })
+        
+        
         return false;
+
+        
         
     });
 
     
 
-    // When user selects 'submit' the choices for race and weapon are sent to sql database as an array for the current user
-    // The race and weapon array is then returned and rendered using mergeImages
     
    
 
-    function displayAvatar(){
-    mergeImages(imgArray)
-        .then(b64 => $(avatarImg).attr('src', b64))
-    $("#avatar").removeClass("hidden")
-    console.log(imgArray)
-    }
+    // function displayAvatar(){
+    // mergeImages(imgArray)
+    //     .then(b64 => $(avatarImg).attr('src', b64))
+    // $("#avatar").removeClass("hidden")
+    // console.log(imgArray)
+    // }
 
 })
