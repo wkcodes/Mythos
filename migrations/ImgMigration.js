@@ -1,11 +1,12 @@
+'use strict';
+
 module.exports = {
+    
     up: function(queryInterface, Sequelize) {
       // logic for transforming into the new state
-      return queryInterface.addColumn(
-          'users',
-          'img1',
-          Sequelize.STRING
-      )
+      return queryInterface.addColumn('users','img1', {
+          type: Sequelize.STRING
+      });
     },
    
     down: function(queryInterface, Sequelize) {
