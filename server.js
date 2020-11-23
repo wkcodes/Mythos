@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 let session = require("express-session")
+const passport = require("./config/passport");
 
 // Sets up the Express App
 // =============================================================
@@ -19,7 +20,10 @@ var db = require("./models");
 // =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(session({secret: "password", resave: false, saveUninitialized: true}))
+app.use(session({secret: "password", resave: false, saveUninitialized: true}));
+// Configure express to use passport for user login status
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Static directory
 app.use(express.static("public"));
