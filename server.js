@@ -1,6 +1,6 @@
 // *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//  ******************************************************************************
+//    This file is the initial starting point for the Node/Express server.
+// *****************************************************************************
 
 // *** Dependencies
 // =============================================================
@@ -16,6 +16,7 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
 // Sets up the Express app to handle data parsing
+// =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session({secret: "password", resave: false, saveUninitialized: true}))
@@ -23,21 +24,20 @@ app.use(session({secret: "password", resave: false, saveUninitialized: true}))
 // Static directory
 app.use(express.static("public"));
 
+// View engine for handlebars/express
 var exphbs = require("express-handlebars");
 
+// Set up Handlebars for templating
+// =============================================================
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-
-//We'll need to change whats in the routes dir to reflect Mythos 
 require("./routes/user-api-routes.js")(app);
 require("./routes/profile-api-routes.js")(app);
 require("./routes/login-api-routes.js")(app);
 require("./routes/signupRoute.js")(app)
-
-
 
 // Syncing our sequelize models and then starting our Express app
 // add {force: true} back into sync function
