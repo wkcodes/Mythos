@@ -28,6 +28,7 @@
     "express-session": "^1.17.1",
     "merge-images": "^2.0.0",
     "mysql2": "^1.6.5",
+    "passport": "^0.4.1",
     "sequelize": "^5.8.6"
   }
 }
