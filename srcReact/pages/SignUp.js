@@ -1,7 +1,7 @@
 import React from 'react';
 import Jumbotron from '../components/Jumbotron/index';
 
-const Home = () => {
+const SignUp = () => {
     return (
     <div>
         <Jumbotron></Jumbotron>
@@ -10,4 +10,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default SignUp;
