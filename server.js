@@ -11,7 +11,7 @@ const passport = require("./config/passport");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3001;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -26,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static("client/public"));
 
 // View engine for handlebars/express
 var exphbs = require("express-handlebars");
