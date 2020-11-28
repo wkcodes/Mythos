@@ -3,7 +3,7 @@ import {Card, Form, Button, Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
       
-const SignUp = () => {
+const World = () => {
           return (
           <>
           <Card className="container">
@@ -57,4 +57,4 @@ const SignUp = () => {
       }
 
 
-export default SignUp;
+export default World;

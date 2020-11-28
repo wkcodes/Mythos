@@ -4,10 +4,10 @@ import Jumbotron from '../components/Jumbotron/index';
 
 const Profile = () => {
     return (
-    <div>
-        <Jumbotron></Jumbotron> 
-        
-    </div>
+    <>
+        <Jumbotron></Jumbotron>
+    </>
+
   );
 }
 
