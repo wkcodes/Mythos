@@ -6,8 +6,8 @@ const Profile = () => {
     return (
     <>
         <Jumbotron></Jumbotron>
-
     </>
+
   );
 }
 
