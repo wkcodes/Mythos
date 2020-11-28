@@ -1,6 +1,6 @@
 import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import Button from '../Button/index';
+import Button from 'react-bootstrap/Button';
 import Card from '../Card/index';
 
 const Jumbo = () => {
@@ -14,7 +14,7 @@ const Jumbo = () => {
         <Card></Card>
         <p>
           
-          <Button></Button>
+          <Button> World View</Button>
         </p>
       </Jumbotron> 
     );
