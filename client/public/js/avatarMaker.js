@@ -28,8 +28,6 @@ $(document).ready(function(){
 
     let imgArray = []
 
-    console.log(imgArray)
-
     $(".avatarBtn").click(function () {
         switch ($(this).attr("id")) {
             case "human":

@@ -1,7 +1,7 @@
 let db = require("../models");
 
 module.exports = function (app) {
-    app.get("/profile", function (req, res) {
+    app.get("/api/profile", function (req, res) {
         console.log(req.session.userId)
         if(req.session.userId === undefined){
             return res.redirect("/login")
@@ -34,7 +34,7 @@ module.exports = function (app) {
         });
     });
 
-    app.put("/profile", function (req, res) {
+    app.put("/api/profile", function (req, res) {
         db.myth.update(
             req.body,
             {
