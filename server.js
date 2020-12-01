@@ -7,7 +7,7 @@
 var express = require("express");
 let session = require("express-session")
 const passport = require("./config/passport");
-
+const path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
