@@ -1,11 +1,11 @@
 import React from 'react';
-import Jumbotron from '../components/Jumbotron/index';
+import Card from '../components/Card/index';
 
 
 const Profile = () => {
     return (
     <div>
-        <Jumbotron></Jumbotron> 
+        <Card></Card> 
         
     </div>
   );
