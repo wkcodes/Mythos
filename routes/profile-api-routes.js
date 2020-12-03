@@ -1,5 +1,8 @@
 let db = require("../models");
 
+// Requiring PassportJS middleware to check if user is logged in
+//const isAuthenticated = require("../config/isAuthenticated");
+
 module.exports = function (app) {
     app.post("/api/profile", function (req, res) {
         console.log(req.session)

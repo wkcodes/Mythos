@@ -7,7 +7,7 @@
 var express = require("express");
 let session = require("express-session")
 const passport = require("./config/passport");
-
+const path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -43,6 +43,9 @@ require("./routes/profile-api-routes.js")(app);
 require("./routes/login-api-routes.js")(app);
 require("./routes/signupRoute.js")(app)
 
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 // Syncing our sequelize models and then starting our Express app
 // add {force: true} back into sync function
 // =============================================================
