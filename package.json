@@ -11,7 +11,7 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "node server && npm install && cd client && npm run build && npm start",
-    "heroku-postbuild": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev"
+    "heroku-postbuild": "cd Mythos && npm install && node server && cd client && npm run build"
     
   },
   "repository": {
