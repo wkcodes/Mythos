@@ -4,23 +4,22 @@ let db = require("../models");
 //const isAuthenticated = require("../config/isAuthenticated");
 
 module.exports = function (app) {
-    app.get("/api/profile", function (req, res) {
-        console.log(req.session.userId)
-        if(req.session.userId === undefined){
-            return res.redirect("/login")
+    app.post("/api/profile", function (req, res) {
+        console.log(req.session)
+        if(req.body.userId === undefined){
+            return console.log("user not set")
         }
         
         db.myth.findAll({
             where: {
-                userId: req.session.userId
+                userId: req.body.userId
             },raw:true
         }).then(function (dbMyth) {
-            res.render("profile", {myths: dbMyth, characterName: req.session.charName});
+            res.json(dbMyth);
         });
     });
 
-
-    app.post("/api/profile", function (req, res) {
+    app.post("/api/myth", function (req, res) {
         
         db.myth.create(req.body).then(function (dbMyth) {
             res.json(dbMyth);

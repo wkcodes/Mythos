@@ -3,14 +3,19 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import Avatar from "../Avatar"
+import API from "../../utils/API/index"
 
-const ProfileCard = (props) => {
-  
+const avatarCard = (props) => {
+  // const id = 1
+  // API.getUser(id)
+  // .then(res =>{
+  //   console.log("user", res)
+  // })
 
-  
   return (
     <Card style={{ width: '18rem' }}>
       
+      {/* change userId to pull from props from Profile or SignUp page */}
       <Avatar userID={1}/>
       <ListGroup className="list-group-flush">
       <h1>Gongor</h1>
@@ -23,7 +28,7 @@ const ProfileCard = (props) => {
   );
 }
 
-export default ProfileCard;
+export default avatarCard;
 
 
 

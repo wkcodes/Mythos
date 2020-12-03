@@ -6,8 +6,14 @@ const API = {
   login: function() {
     return axios.post("/api/login");
   },
-  getProfile: function() {
-    return axios.get("/api/profile");
+  getProfile: function(userId) {
+    return axios({
+      method: 'post',
+      url: '/api/profile',
+      data: {
+        userId
+      }
+    });
   },
   saveProfile: function() {
     return axios.post("/api/profile");

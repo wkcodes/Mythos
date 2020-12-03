@@ -21,7 +21,7 @@ function goToProfile(event) {
         }
     }).then(res => {
         console.log(res.id)
-        setStorage(res.id, res.characterName)
+        // setStorage(res.id, res.characterName)
         location.replace("/profile")
        
     }).catch((err) => {
@@ -32,7 +32,7 @@ function goToProfile(event) {
 
 }
 
-function setStorage(userId, character) {
-    window.localStorage.setItem("id", userId)
-    window.localStorage.setItem("characterName", JSON.stringify(character))
-    }
+// function setStorage(userId, character) {
+//     window.localStorage.setItem("id", userId)
+//     window.localStorage.setItem("characterName", JSON.stringify(character))
+//     }
