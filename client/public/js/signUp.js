@@ -40,17 +40,17 @@ $(document).ready(function(){
             character = res.characterName
 
 
-           setStorage();
+        //    setStorage();
 
            location.replace("/profile")
             
 
         })
         
-        function setStorage() {
-        window.localStorage.setItem("id", userId)
-        window.localStorage.setItem("characterName", JSON.stringify(character))
-        }
+        // function setStorage() {
+        // window.localStorage.setItem("id", userId)
+        // window.localStorage.setItem("characterName", JSON.stringify(character))
+        // }
     }
 
 

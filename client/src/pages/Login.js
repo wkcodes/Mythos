@@ -48,7 +48,7 @@ const Login = () => {
 
       </Card.Body>
     </Card>
-       <div className="w-100 text-center">
+       <div className="w-100 text-center label">
          Don't Have an account? <Link to="/signup">Sign Up here</Link>
 
       </div>
