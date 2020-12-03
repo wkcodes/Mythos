@@ -5,12 +5,12 @@
   "description": "This is an online social media platform for Live Action Role Players. ",
   "main": "server.js",
   "scripts": {
-    "start": "node server && npm install && cd client && npm run build && npm start",
+    "start": "node server",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "build": "node server && npm install && cd client && npm run build && npm start",
     "heroku-postbuild": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev"
     
   },
