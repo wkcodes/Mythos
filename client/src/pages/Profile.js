@@ -4,8 +4,9 @@ import MythCreator from '../components/MythCreator/index'
 import Myths from "../components/Myths/index"
 
 
-const Profile = () => {
 
+const Profile = () => {
+ 
 
     return (
     <div>
