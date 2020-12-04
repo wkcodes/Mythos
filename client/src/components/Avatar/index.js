@@ -1,41 +1,16 @@
 import { React, useEffect, useState } from "react";
-import Card from "react-bootstrap/Card"
+// import Card from "react-bootstrap/Card"
 import mergeImages from "merge-images"
 import API from "../../utils/API/index"
+import MergeImages from "../MergeImages/index"
 
 
 function AvatarMaker(props) {
   
-    const id = props.userID
 
-    const [mergeImgSrc, setImgSrc] = useState("");
-   
-
-
-
-    useEffect(() => {
-
-        API.getUser(id)
-            .then(res => {
-                if(!res.data.img1 && !res.data.img2){
-                   
-                    return
-                }
-                console.log(res.data.img2)
-                mergeImages([res.data.img1, res.data.img2])
-                
-                    .then(b64 => setImgSrc(b64))
-            })
-
-
-
-    }, [id])
-
-    return (
-        <div>            
-            <Card.Img variant="top" src={mergeImgSrc} />
-        </div>
-    )
+    return(
+        <MergeImages src={props.imgSrc}/>
+        )
 }
 
 export default AvatarMaker;

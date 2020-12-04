@@ -23,7 +23,6 @@ module.exports = function(app) {
     });
 
     app.put("/api/users/:id", function(req, res) {
-        console.log("1")
         let img1 = req.body.img1
         let img2 = req.body.img2
 
@@ -33,7 +32,6 @@ module.exports = function(app) {
             }
         })
         .then(user => {
-            console.log("2")
             console.log(img1, img2)
             user.update({img1: img1, img2: img2}).then(updatedUser => {
                 console.log(updatedUser)

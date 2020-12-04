@@ -23,9 +23,8 @@ function Myths() {
     return (
         <div>
             {myths.map(myth => (
-            <Card className="col-md-6" style={{ width: '18rem' }}>
+            <Card key={myth.id} className="col-md-6" style={{ width: '18rem' }}>
                     <MythCard className="col-md-6"
-                        key={myth.id}
                         title={myth.title}
                         body={myth.body}
                     />

@@ -37,7 +37,7 @@ const SignUp = () => {
                 </Col>
               </Form.Group>
 
-              <Form.Group as={Row} controlId="formHorizontalEmail">
+              <Form.Group as={Row} controlId="formHorizontalCharacterName">
                 <Form.Label column sm={0}>
                   Character Name
                 </Form.Label>
