@@ -17,7 +17,6 @@ function Myths() {
         const userId = sessionStorage.getItem("userId")
         API.getProfile(userId)
             .then(res => {
-
                 setMyths(res.data)
             })
     }

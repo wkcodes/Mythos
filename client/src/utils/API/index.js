@@ -27,8 +27,17 @@ const API = {
   getUser: function(id){
     return axios.get("/api/users/" + id)
   },
-  updateUser: function(id){
-    return axios.put("/api/users/" + id)
+  updateUser: function(id, img1, img2){
+    return axios({
+      method: 'put',
+      url: `/api/users${id}`,
+      data: {
+        img1,
+        img2
+      }
+    })
+    
+    .put("/api/users/" + id)
   },
   createUser: function(){
     return axios.post("/api/users/")

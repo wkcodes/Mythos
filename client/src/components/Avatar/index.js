@@ -29,7 +29,7 @@ function AvatarMaker(props) {
     }, [id])
 
     return (
-        <div>
+        <div>            
             <Card.Img variant="top" src={mergeImgSrc} />
         </div>
     )
