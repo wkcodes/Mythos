@@ -1,11 +1,11 @@
-import { React, useState } from "react"
+import { React, useState, useEffect } from "react"
 import { Button, Modal, Container, Row, Col } from "react-bootstrap"
 import API from "../../utils/API/index"
 import Race from "../Races/index";
 import Weapon from "../Weapons/index"
 
 function EditAvatar() {
-
+    const [btnText, setBtnText] = useState("Edit Avatar")
 
     const [show, setShow] = useState(false)
 
@@ -22,9 +22,19 @@ function EditAvatar() {
     //     API.updateUser(id, img1, img2)
     // }
 
+    useEffect(()=> {
+        // const id = sessionStorage.getItem("userId")
+        API.getUser(id)
+        .then(res => {
+            if(!res.data.img1 && !res.data.img2)
+            setBtnText("Create Avatar")
+        })
+    
+    })
+
     return (
         <>
-            <Button size="sm" variant="primary" onClick={handleShow}>Edit Avatar</Button>
+            <Button size="sm" variant="primary" onClick={handleShow}>{btnText}</Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
