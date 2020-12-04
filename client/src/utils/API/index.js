@@ -56,7 +56,17 @@ const API = {
       }
     });
   },
-
+  createMyth: function(userId, title, body){
+    return axios({
+      method: 'post',
+      url: '/api/myth',
+      data: {
+        userId,
+        title,
+        body
+      }
+    })
+  }
 
 };
 

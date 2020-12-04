@@ -5,7 +5,6 @@ let db = require("../models");
 
 module.exports = function (app) {
     app.post("/api/profile", function (req, res) {
-        console.log(req.session)
         if(req.body.userId === undefined){
             return console.log("user not set")
         }

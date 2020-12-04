@@ -11,3 +11,5 @@ const Weapons = {
 }
 
 export default Weapons;
+
+// example route: ../images/templates/Races/dwarf/dwarf-axe.png

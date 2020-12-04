@@ -5,3 +5,5 @@ const Race = {
 }
 
 export default Race
+
+// example route: ../images/templates/Races/dwarf/Base-dwarf.png

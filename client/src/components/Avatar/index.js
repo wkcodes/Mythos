@@ -9,15 +9,19 @@ function AvatarMaker(props) {
     const id = props.userID
 
     const [mergeImgSrc, setImgSrc] = useState("");
+   
 
 
 
     useEffect(() => {
 
-        // pass in props.userId later once you fix that issue
         API.getUser(id)
             .then(res => {
-                console.log(res)
+                if(!res.data.img1 && !res.data.img2){
+                   
+                    return
+                }
+                console.log(res.data.img2)
                 mergeImages([res.data.img1, res.data.img2])
                 
                     .then(b64 => setImgSrc(b64))
