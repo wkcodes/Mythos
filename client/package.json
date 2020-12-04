@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://myth0s.herokuapp.com/",
   "proxy": "http://127.0.0.1:3001",
+  "secure": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
