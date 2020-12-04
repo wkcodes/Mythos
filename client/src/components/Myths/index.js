@@ -7,11 +7,6 @@ function Myths() {
 
     const [myths, setMyths] = useState([])
 
-    const setID = () => {
-        sessionStorage.clear()
-        sessionStorage.setItem("userId", 1)
-    }
-
     const getProfile = () => {
 
         const userId = sessionStorage.getItem("userId")
@@ -22,7 +17,6 @@ function Myths() {
     }
 
     useEffect(() => {
-        setID()
         getProfile()
     }, [])
 

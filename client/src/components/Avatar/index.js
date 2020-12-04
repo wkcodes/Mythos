@@ -7,7 +7,6 @@ import API from "../../utils/API/index"
 function AvatarMaker(props) {
   
     const id = props.userID
-    console.log(props.userID)
 
     const [mergeImgSrc, setImgSrc] = useState("");
 
