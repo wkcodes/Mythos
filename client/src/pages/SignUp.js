@@ -1,11 +1,21 @@
 import { React, setValue, useState } from "react";
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import API from "../utils/API/index"
 
 const SignUp = () => {
   const [userId, setUserId] = useState();
   const [email, setEmail] = useState();
   const [characterName, setCharacterName] = useState();
+
+  const setSession = () => {
+    API.createUser()
+    .then(res => {
+      console.log(res)
+    })
+    sessionStorage.setItem("userId", userId)
+    sessionStorage.setItem("charName", characterName)
+  }
 
   console.log(email);
 
@@ -15,7 +25,6 @@ const SignUp = () => {
         <Card.Body>
           <h2 className="text-center">Sign Up</h2>
           <Form>
-            <Form>
               <Form.Group as={Row} controlId="formHorizontalEmail">
                 <Form.Label column sm={0}>
                   Email
@@ -32,14 +41,14 @@ const SignUp = () => {
                 </Form.Label>
 
                 <Col sm={10}>
-                  <Form.Control
+                  <Form.Control onChange={(e) => setCharacterName(e.target.value)}
                     type="characterName"
                     placeholder="Character Name"
                   />
                 </Col>
               </Form.Group>
 
-              <Form.Group as={Row} controlId="formPassword">
+              {/* <Form.Group as={Row} controlId="formPassword">
                 <Form.Label column sm={2}>
                   Password
                 </Form.Label>
@@ -47,7 +56,7 @@ const SignUp = () => {
                 <Col sm={10}>
                   <Form.Control type="password" placeholder="Password" />
                 </Col>
-              </Form.Group>
+              </Form.Group> */}
 
               <Form.Group as={Row} controlId="formHorizontalCheck">
                 <Col sm={{ span: 10, offset: 2 }}>
@@ -58,11 +67,10 @@ const SignUp = () => {
               <Form.Group as={Row}>
                 <Col sm={{ span: 10, offset: 2 }}>
                   {/* <Link to="/profile"> */}
-                    <Button onClick={() => console.log(email)}type="submit">Sign in</Button>
+                    <Button onClick={() => setSession()}type="submit">Sign in</Button>
                   {/* </Link> */}
                 </Col>
               </Form.Group>
-            </Form>
           </Form>
         </Card.Body>
       </Card>
