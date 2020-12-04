@@ -39,8 +39,15 @@ const API = {
     
     .put("/api/users/" + id)
   },
-  createUser: function(){
-    return axios.post("/api/users/")
+  createUser: function(email, characterName){
+    return axios({
+      method: 'post',
+      url: 'api/users',
+      data: {
+      email,
+      characterName
+      }
+    });
   },
 
 

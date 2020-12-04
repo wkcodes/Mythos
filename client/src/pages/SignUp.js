@@ -4,20 +4,22 @@ import { Link } from "react-router-dom";
 import API from "../utils/API/index"
 
 const SignUp = () => {
-  const [userId, setUserId] = useState();
+  
+  
   const [email, setEmail] = useState();
   const [characterName, setCharacterName] = useState();
 
   const setSession = () => {
-    API.createUser()
+
+    API.createUser(email, characterName)
     .then(res => {
-      console.log(res)
-    })
-    sessionStorage.setItem("userId", userId)
-    sessionStorage.setItem("charName", characterName)
+      console.log(res.data)
+      sessionStorage.setItem("userId", res.data)
+      sessionStorage.setItem("charName", characterName)
+    }).catch(err => console.log(err))
   }
 
-  console.log(email);
+
 
   return (
     <>
@@ -66,9 +68,9 @@ const SignUp = () => {
 
               <Form.Group as={Row}>
                 <Col sm={{ span: 10, offset: 2 }}>
-                  {/* <Link to="/profile"> */}
-                    <Button onClick={() => setSession()}type="submit">Sign in</Button>
-                  {/* </Link> */}
+                  <Link to="/profile">
+                    <Button onClick={setSession} type="submit">Sign in</Button>
+                  </Link>
                 </Col>
               </Form.Group>
           </Form>
