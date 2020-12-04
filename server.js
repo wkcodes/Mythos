@@ -26,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Static directory
-app.use(express.static("client/public"));
+app.use(express.static("client/build"));
 
 
 // Routes
