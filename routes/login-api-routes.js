@@ -27,8 +27,7 @@ module.exports = function (app) {
                 return res.status(404).send({ message: "User not found" })
             }
 
-            req.session.userId = user.id
-            req.session.charName = user.characterName
+           
             console.log("success")
             return res.json(user)
             

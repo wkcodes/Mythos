@@ -3,8 +3,15 @@ import axios from "axios";
 
 const API = {
  
-  login: function() {
-    return axios.post("/api/login");
+  login: function(email, characterName) {
+    return axios({
+      method: 'post',
+      url: '/api/login',
+      data: {
+        email,
+        characterName
+      }
+    })
   },
   getProfile: function(userId) {
     return axios({

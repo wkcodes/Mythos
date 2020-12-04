@@ -7,7 +7,7 @@ import API from "../../utils/API/index"
 import EditAvatar from "../Button/index"
 
 const avatarCard = () => {
-
+  
 
   return (
     <>

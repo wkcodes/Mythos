@@ -1,5 +1,5 @@
 import React from 'react';
-import AvatarCard from '../components/Card/index';
+import AvatarCard from '../components/AvatarCard/index';
 import Myths from "../components/Myths/index"
 
 const Profile = () => {
