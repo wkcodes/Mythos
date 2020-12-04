@@ -45,8 +45,10 @@ module.exports = function(app) {
 
     app.post("/api/users", function(req, res) {
         db.user.create(req.body).then(function(dbUser) {
-            res.json(dbUser);
-        });
+            console.log(dbUser)
+            res.json(dbUser.id);
+
+        }).catch(err => console.log(err))
     });
 
     app.delete("/api/users/:id", function(req, res) {

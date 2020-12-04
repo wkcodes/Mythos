@@ -6,20 +6,15 @@ import Avatar from "../Avatar"
 import API from "../../utils/API/index"
 import EditAvatar from "../Button/index"
 
-const avatarCard = (props) => {
-  // const id = 1
-  // API.getUser(id)
-  // .then(res =>{
-  //   console.log("user", res)
-  // })
+const avatarCard = () => {
+
 
   return (
     <>
     <EditAvatar></EditAvatar>
     <Card style={{ width: '18rem' }}>
       
-      {/* change userId to pull from props from Profile or SignUp page */}
-      <Avatar userID={1}/>
+      <Avatar userID={sessionStorage.getItem("userId")}/>
       <ListGroup className="list-group-flush">
       <h1>Gongor</h1>
         <ListGroupItem>Strength:</ListGroupItem>

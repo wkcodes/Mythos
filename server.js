@@ -28,13 +28,6 @@ app.use(passport.session());
 // Static directory
 app.use(express.static("client/public"));
 
-// View engine for handlebars/express
-var exphbs = require("express-handlebars");
-
-// Set up Handlebars for templating
-// =============================================================
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
