@@ -3,11 +3,11 @@ const Race = {
 
     elf: {
         name: "Elf",
-        img1: "../images/templates/Races/Elf/Base-Elf.png",
+        img1: "client/build/public/images/templates/Races/Elf/Base-Elf.png",
         weapons: [
             {
                 name: "sword",
-                img: "../images/templates/Races/Elf/Elf-Sword.png"
+                img: "client/build/public/images/templates/Races/Elf/Elf-Sword.png"
             },
             {
                 name: "axe",
