@@ -1,12 +1,14 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 import AvatarCard from '../components/AvatarCard/index';
 import MythCreator from '../components/MythCreator/index'
 import Myths from "../components/Myths/index"
-import {Button, Container, Row, Col} from "react-bootstrap"
-import {Link} from "react-router-dom"
+import {Container, Row, Col} from "react-bootstrap"
+import {Link, useHistory} from "react-router-dom"
+
 
 
 const Profile = () => {
+
     
   const logOut = () => {
       sessionStorage.clear()
@@ -14,8 +16,15 @@ const Profile = () => {
 
     return (
     <div>
+      
+
       <Container>
+       
         <Link to="/login" className="button" onClick={logOut}>Log Out</Link>
+      
+        <Link to="/world" className="button">World</Link>
+         
+        
         <Row>
           <Col>
           <AvatarCard></AvatarCard>
@@ -35,6 +44,7 @@ const Profile = () => {
         
        
         </Container>
+
         
     </div>
   );

@@ -7,6 +7,7 @@ import Race from "../Races/index";
 
 function EditAvatar(props) {
     const [btnText, setBtnText] = useState("Create Avatar")
+    const [chooseText, setChooseText] = useState("Choose your Race:")
 
     const [show, setShow] = useState(false)
 
@@ -25,18 +26,20 @@ function EditAvatar(props) {
 
     const logRace = () => {
         console.log(img2)
+        setChooseText("Choose your race:")
         API.updateAvatar(id, img1, img2)
-        .then(res => {
-            console.log(res)
-            handleClose()
-            props.onSave(res.data.img1, res.data.img2)
-            setIsSelectingRace(true)
-        })
+            .then(res => {
+                console.log(res)
+                handleClose()
+                props.onSave(res.data.img1, res.data.img2)
+                setIsSelectingRace(true)
+            })
     }
 
     const selectedRace = (race) => {
         setImg1(race.img1)
         setRaceChoice(race)
+        setChooseText("Choose your weapon:")
         setIsSelectingRace(false)
     }
 
@@ -44,16 +47,18 @@ function EditAvatar(props) {
         console.log(weapon)
         setImg2(weapon.img)
         
+
     }
 
+
     useEffect(() => {
-        API.getUser(id)
+        API.getUser(sessionStorage.getItem("userId"))
             .then(res => {
                 if (res.data.img1 && res.data.img2) {
                     setBtnText("Edit Avatar")
                 }
             })
-        }, [id])
+    }, [id])
 
     return (
         <>
@@ -62,47 +67,47 @@ function EditAvatar(props) {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Avatar Editor</Modal.Title>
-                    <Modal.Body>Choose your Race:
+                    <Modal.Body>{chooseText}
                     <br></br>
-                    </Modal.Body> 
-                    { isSelectingRace ? (
+                    </Modal.Body>
+                    {isSelectingRace ? (
                         <Container>
                             <Row className="justify-content-around">
                                 {races.map(race => {
-                                    return(
-                                    <Col key={race.name}>
-                                    <Button onClick={() => selectedRace(race)}>{race.name}</Button>
-                                    </Col>
-                                )
+                                    return (
+                                        <Col key={race.name}>
+                                            <Button onClick={() => selectedRace(race)}>{race.name}</Button>
+                                        </Col>
+                                    )
                                 })}
-                                
-                                
+
+
                             </Row>
                         </Container>
                     )
-                    :
-                    (
-                        <Container>
-                            <Row className="justify-content-around">
-                            {raceChoice.weapons.map(weapon => {
-                                    return(
-                                    <Col key={weapon.name}>
-                                    <Button onClick={() => selectedWeapon(weapon)}>{weapon.name}</Button>
-                                    </Col>
-                                )
-                                })}
-                            </Row>
-                        </Container>)
+                        :
+                        (
+                            <Container>
+                                <Row className="justify-content-around">
+                                    {raceChoice.weapons.map(weapon => {
+                                        return (
+                                            <Col key={weapon.name}>
+                                                <Button onClick={() => selectedWeapon(weapon)}>{weapon.name}</Button>
+                                            </Col>
+                                        )
+                                    })}
+                                </Row>
+                            </Container>)
                     }
                 </Modal.Header>
                 <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
           </Button>
-          <Button variant="primary" onClick={logRace}>
-            Save
+                    <Button variant="primary" onClick={logRace}>
+                        Save
           </Button>
-        </Modal.Footer>
+                </Modal.Footer>
             </Modal>
         </>
     )
