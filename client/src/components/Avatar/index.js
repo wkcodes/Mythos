@@ -1,7 +1,5 @@
-import { React, useEffect, useState } from "react";
+import React  from "react";
 // import Card from "react-bootstrap/Card"
-import mergeImages from "merge-images"
-import API from "../../utils/API/index"
 import MergeImages from "../MergeImages/index"
 
 
