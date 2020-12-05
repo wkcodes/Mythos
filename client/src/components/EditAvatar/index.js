@@ -5,6 +5,7 @@ import Race from "../Races/index";
 
 
 
+
 function EditAvatar(props) {
     const [btnText, setBtnText] = useState("Create Avatar")
     const [chooseText, setChooseText] = useState("Choose your Race:")
