@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom"
-import MythCard from "../components/MythCard"
+import WorldCards from "../components/WorldCards"
 import API from "../utils/API/index"
 const World = (props) => {
 
@@ -28,8 +28,8 @@ const World = (props) => {
           {allMyths.map(myth => {
             return (
               <Col md={4} className="justify-content-between col-auto mb-3">
-                <Card style={{ width: "18rem " }} key={myth.id} className="container">
-                  <MythCard userId={myth.userId} title={myth.title} body={myth.body} className="col-md-6" />
+                <Card style={{ width: "18rem" }} key={myth.id}>
+                  <WorldCards userId={myth.userId} title={myth.title} body={myth.body} className="col-md-6" />
 
                 </Card>
               </Col>

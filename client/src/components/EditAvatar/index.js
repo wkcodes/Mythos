@@ -6,7 +6,7 @@ import Race from "../Races/index";
 
 
 function EditAvatar(props) {
-    const [btnText, setBtnText] = useState("Edit Avatar")
+    const [btnText, setBtnText] = useState("Create Avatar")
 
     const [show, setShow] = useState(false)
 
@@ -49,8 +49,8 @@ function EditAvatar(props) {
     useEffect(() => {
         API.getUser(id)
             .then(res => {
-                if (!res.data.img1 && !res.data.img2) {
-                    setBtnText("Create Avatar")
+                if (res.data.img1 && res.data.img2) {
+                    setBtnText("Edit Avatar")
                 }
             })
         }, [id])
