@@ -64,7 +64,12 @@ const API = {
         body
       }
     })
+  },
+
+  getMyths: function(){
+    return axios.get("/api/myths")
   }
+
 
 };
 

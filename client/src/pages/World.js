@@ -1,60 +1,47 @@
-import React from 'react';
-import {Card, Form, Button, Row, Col} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { React, useState, useEffect } from 'react';
+import { Card, Button, Row, Col, Container } from 'react-bootstrap';
+import { Link } from "react-router-dom"
+import MythCard from "../components/MythCard"
+import API from "../utils/API/index"
+const World = (props) => {
 
+  const [allMyths, setAllMyths] = useState([])
+  const [authors, setAuthors] = useState([])
+
+  useEffect(() => {
+    API.getMyths()
+      .then(res => {
+        setAllMyths(res.data)
+
+      })
+  }, [])
+
+  return (
+    <>
+      <Link className="button" style={{ justifyContent: "end"}} to="/profile">Profile</Link>
       
-const World = () => {
-          return (
-          <>
-          <Card className="container">
-            
-            <Card.Body>
-              <h2 className="text-center">Sign Up</h2>
-              <Form>
-              <Form>
-        <Form.Group as={Row} controlId="formHorizontalEmail">
-          <Form.Label column sm={0}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="email" placeholder="Email" />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} controlId="formPassword">
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="password" placeholder="Password" />
-          </Col>
-        </Form.Group>
-      
-        <Form.Group as={Row} controlId="formHorizontalCheck">
-          <Col sm={{ span: 10, offset: 2 }}>
-            <Form.Check label="Remember me" />
-          </Col>
-        </Form.Group>
-      
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
-           <Link to="/profile">
-           <Button type="submit">Sign in</Button>
-           </Link> 
-          </Col>
-        </Form.Group>
-      </Form>
-              </Form>
-      
-            </Card.Body>
-          </Card>
-             <div className="w-100 text-center">
-               Already have an account? <Link to="/login">Log in</Link>
-      
-            </div>
-              
-          </>
-        );
-      }
+      <Container>
+
+        <h1 className="label myth" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>Myths of The World:</h1>
+
+        <Row>
+          {allMyths.map(myth => {
+            return (
+              <Col md={4} className="justify-content-between col-auto mb-3">
+                <Card style={{ width: "18rem " }} key={myth.id} className="container">
+                  <MythCard userId={myth.userId} title={myth.title} body={myth.body} className="col-md-6" />
+
+                </Card>
+              </Col>
+            )
+
+          })}
+        </Row>
+      </Container>
+
+    </>
+  );
+}
 
 
 export default World;
