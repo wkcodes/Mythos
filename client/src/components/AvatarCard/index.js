@@ -17,6 +17,12 @@ const AvatarCard = () => {
   const [imgSrc, setImgSrc] = useState("")
   const id = sessionStorage.getItem("userId")
 
+  const renderAvatar = (img1, img2) => {
+  mergeImages([img1, img2])
+              
+                  .then(b64 => setImgSrc(b64))
+  }
+
   useEffect(() => {
 
     API.getUser(id)
@@ -25,10 +31,12 @@ const AvatarCard = () => {
                
                 return
             }
+            let img1 = res.data.img1
+            let img2 = res.data.img2
 
-            mergeImages([res.data.img1, res.data.img2])
+            renderAvatar(img1, img2)
+
             
-                .then(b64 => setImgSrc(b64))
         })
 
 }, [id])

@@ -1,18 +1,24 @@
 import {React, useState} from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import API from "../utils/API/index"
+import ErrToast from "../components/ErrToast/index"
+import Redirect from "react-router-dom"
 
 const Login = () => {
 
   const [email, setEmail] = useState();
   const [characterName, setCharacterName] = useState()
-
+  const history = useHistory()
+  
+  
   const checkDB = (e) => {
+    e.preventDefault()
     API.login(email, characterName)
     .then(res => {
       sessionStorage.setItem("characterName", res.data.characterName)
       sessionStorage.setItem("userId", res.data.id)
+      history.push('/profile')
     })
   }
 
@@ -44,9 +50,10 @@ const Login = () => {
 
             <Form.Group as={Row}>
               <Col sm={{ span: 10, offset: 2 }}>
-                <Link to="/profile">
+                {/* <Link to="/profile"> */}
                   <Button onClick={checkDB} type="submit">Log in</Button>
-                </Link>
+                {/* </Link> */}
+
               </Col>
             </Form.Group>
           </Form>
