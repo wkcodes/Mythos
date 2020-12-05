@@ -1,5 +1,4 @@
 import {React, useState, useEffect} from "react"
-import mergeImages from "merge-images"
 import Card from "react-bootstrap/Card"
 
 function MergeImages(props){
