@@ -25,9 +25,8 @@ app.use(session({secret: "password", resave: false, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Static directory
+// Middleware that looks for files that match a route 
 app.use(express.static("client/build"));
-
 
 // Routes
 // =============================================================
