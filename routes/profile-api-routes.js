@@ -25,6 +25,12 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/myths", function (req, res) {
+        db.myth.findAll({}).then(function (myths) {
+            res.json(myths)
+        })
+    })
+
     app.delete("/api/profile/:mythId", function (req, res) {
         db.myth.destroy({
             where: {
