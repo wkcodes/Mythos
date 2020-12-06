@@ -7,15 +7,15 @@ const Race = {
         img1: "../../images/templates/Races/Elf/Base-Elf.png",
         weapons: [
             {
-                name: "sword",
+                name: "Sword",
                 img: "../../images/templates/Races/Elf/Elf-Sword.png"
             },
             {
-                name: "axe",
+                name: "Axe",
                 img: "../../images/templates/Races/Elf/Elf-Axe.png"
             },
             {
-                name: "bow",
+                name: "Bow",
                 img: "../../images/templates/Races/Elf/Elf-Bow-and-Quiver.png"
             },
         ]

@@ -20,7 +20,7 @@ function EditAvatar(props) {
 
     const [isSelectingRace, setIsSelectingRace] = useState(true)
 
-    const races = [Race.human, Race.elf, Race.dwarf]
+    const races = [Race.elf, Race.human, Race.dwarf]
     const [raceChoice, setRaceChoice] = useState()
 
     const id = sessionStorage.getItem("userId")
