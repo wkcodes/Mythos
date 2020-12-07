@@ -22,7 +22,7 @@ const Race = {
     },
     human: {
         name: "Human",
-        img1: "../../images/templates/Races/Human/Base-Human.png",
+        img1: "../../images/templates/Races/Human/base-human.png",
         weapons: [
             {
                 name: "Sword",
